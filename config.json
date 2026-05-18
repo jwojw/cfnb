@@ -75,6 +75,8 @@
     "_comment_CF_DNS_CONNECT_TIMEOUT": "Cloudflare API 连接超时（秒）",
     "CF_DNS_READ_TIMEOUT": 3,
     "_comment_CF_DNS_READ_TIMEOUT": "Cloudflare API 读取超时（秒）",
+    "DNS_RECORD_TYPE": "A",
+    "_comment_DNS_RECORD_TYPE": "DNS 记录类型（A 或 AAAA）",
 
     "ADDITIONAL_SOURCES": [
         {
@@ -144,6 +146,12 @@
     ],
     "_comment_BLOCKED_COUNTRIES": "【仅DNS】黑名单国家代码列表（DNS 更新时剔除这些国家的节点）",
 
+    "DNS_IP_RISK_FILTER_ENABLED": false,
+    "_comment_DNS_IP_RISK_FILTER_ENABLED": "【仅DNS】是否启用 IP 风险等级过滤，开关打开时仅保留风险等级不高于DNS_IP_RISK_MAX_LEVEL 的 IP",
+
+    "DNS_IP_RISK_MAX_LEVEL": "高风险",
+    "_comment_DNS_IP_RISK_MAX_LEVEL": "【仅DNS】允许的最高风险等级（极度纯净 / 纯净 / 轻微风险 / 高风险 / 极度危险）",
+
     "DNS_UPDATE_TARGET_COUNT": 15,
     "_comment_DNS_UPDATE_TARGET_COUNT": "DNS 更新时写入的最大 IP 数量，独立于筛选模式",
 
@@ -171,10 +179,10 @@
     "MAX_WORKERS": 200,
     "_comment_MAX_WORKERS": "TCP 并发测试的最大线程数",
 
-    "AVAILABILITY_WORKERS": 10,
+    "AVAILABILITY_WORKERS": 32,
     "_comment_AVAILABILITY_WORKERS": "可用性检测的并发线程数",
 
-    "FALLBACK_WORKERS": 10,
+    "FALLBACK_WORKERS": 32,
     "_comment_FALLBACK_WORKERS": "备用国家查询的并发线程数（当标签无法识别时自动调用可用性 API 查询）",
 
     "BANDWIDTH_WORKERS": 10,
@@ -205,5 +213,11 @@
 
     "AD_PERLINE_ENABLED": false,
     "_comment_AD_PERLINE_ENABLED": "行尾追加开关",
-    "AD_PERLINE_TEXT": " 纯文本"
+    "AD_PERLINE_TEXT": " 纯文本",
+
+    "IP_TXT_SHOW_BANDWIDTH": false,
+    "_comment_IP_TXT_SHOW_BANDWIDTH": "ip.txt 中是否附带带宽测速信息（如 5.20 Mbps）",
+
+    "IP_TXT_SHOW_LATENCY": false,
+    "_comment_IP_TXT_SHOW_LATENCY": "ip.txt 中是否附带 TCP 延迟信息（如 50.30 ms）"
 }
